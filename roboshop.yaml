@@ -1,3 +1,5 @@
+# ansible-playbook -i localhost, -e '{"instances":["frontend","redis","user","cart","mysql","shipping","rabbitmq","payment"]}'
+
 - name: launch instance
   hosts: all
   connection: local
