@@ -27,6 +27,6 @@
 
   - name: print out out
     ansible.builtin.debug:
-    msg: "{{ intsnace: user_output}}"
+      msg: "{{ intsnace: user_output}}"
   
     
