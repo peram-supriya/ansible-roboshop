@@ -9,7 +9,7 @@
   
   - name: install mongodb
     ansible.builtin.dnf:
-      name: mongod
+      name: mongodb-org
       state: present
 
   - name: ansible replace module
