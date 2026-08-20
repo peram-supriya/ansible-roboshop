@@ -5,7 +5,7 @@
     SD_ID: "sg-0f7364ef02abff9ad"
     AMI_ID: "ami-0220d79f3f480ecf5"
     env: Dev
-    domain: Thoshi.online
+    domain: thoshi.online
     instance:
       - mongodb
       - catalogue
