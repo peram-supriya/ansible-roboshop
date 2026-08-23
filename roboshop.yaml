@@ -7,6 +7,7 @@
     SD_ID: "sg-0f7364ef02abff9ad"
     AMI_ID: "ami-0220d79f3f480ecf5"
     env: Dev
+    action: create
     domain: thoshi.online
     instance:
       - mongodb
@@ -43,15 +44,21 @@
       wait: true
     loop: "{{ user_output.results }}"
 
-  - name: create route 53 records
+  - name: delete route 53 records
     amazon.aws.route53:
-      state: present
+      state: absent
       zone: "{{ domain }}"
-      record: "roboshop-{{ env }}.{{ domain }}" 
+      record: "{{ item }} - {{ env }}.{{ domain }}" 
       type: A
       ttl: 1
-      value: "{{item.instances[0].public_ip_address}}"
-      wait: true
-    loop: "{{ user_output.results }}"
-    when:  item.item == "frentend" 
+    loop: "{{ instance }}"
+    when:  action == "destroy" 
+
+  - name: create delete instance
+    amazon.aws.ec2_instance:
+      state: absent
+      waite: false
+      name: "{{ item }}-{{ env }}"
+    loop: "{{ instance }}"
+    when: action == "destroy"  
     
