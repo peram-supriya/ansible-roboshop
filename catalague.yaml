@@ -1,5 +1,5 @@
-- name: catalague
-  hosts: all
+- name: catalogue config
+  hosts: catalogue
   become: yes
   tasks: 
   - name: install catalague
