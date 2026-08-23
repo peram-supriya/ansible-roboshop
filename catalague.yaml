@@ -44,7 +44,7 @@
       dest: /etc/systemd/system/catalogue.service
  
   - name: copy the remo
-    ansible.builtin.coopy:
+    ansible.builtin.copy:
       src: mongo.repo
       dest: /etc/yum.repos.d/mongo.repo
 
