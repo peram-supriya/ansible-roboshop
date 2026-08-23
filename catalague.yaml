@@ -67,6 +67,6 @@
 
   - name: start catalogue
     ansible.builtin.service:
-    name: catalogue
-    statre: started
-    enabled: yes
+      name: catalogue
+      statre: started
+      enabled: yes
