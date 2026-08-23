@@ -42,6 +42,21 @@
     ansible.builtin.copy:
       src: catalogue.service
       dest: /etc/systemd/system/catalogue.service
+ 
+  - name: copy the remo
+    ansible.builtin.coopy:
+      src: mongo.repo
+      dest: /etc/yum.repos.d/mongo.repo
 
+  - name: install mongodb
+    ansible.builtin.dnf:
+      name: mongodb-mongosh
+      state: present
 
-          
+  - name: check products loaded
+    ansible.builtin.command: mongosh --host "{{ MONGODB_HOST }}" --quiet  --eval 'db.getMongo().getDBNames().indexOf("catalogue")' 
+    register: catalogue_outpu
+
+  - name: print catalogue output
+    ansible.builtin.debug:
+      msg: "{{ catalaogue output }}"
