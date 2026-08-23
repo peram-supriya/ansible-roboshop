@@ -59,4 +59,4 @@
 
   - name: print catalogue output
     ansible.builtin.debug:
-      msg: "{{ catalaogue output }}"
+      msg: "{{ catalaogue_output }}"
