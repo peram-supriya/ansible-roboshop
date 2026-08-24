@@ -40,7 +40,7 @@
       record: "{{ item.item }}-{{ env }}.{{ domain }}" 
       type: A
       ttl: 1
-      value: "{{item.instances[0].private_ip_address}}"
+      value: "{{ item.instances[0].private_ip_address }}"
       wait: true
     loop: "{{ user_output.results }}"
 
