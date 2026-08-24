@@ -13,11 +13,11 @@
   
   - name: create a shipping
     ansible.builtin.user:
-      name: roboshop
-      system: true
-      home: /app
-      shell: /sbin/nologin
-      comment: "roboshop system shipping"
+      - name: roboshop
+        system: true
+        home: /app
+        shell: /sbin/nologin
+        comment: "roboshop system shipping"
 
   - name: delete the folder
     ansible.builtin.file:
