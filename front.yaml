@@ -10,10 +10,10 @@
       name: nginx
       state: present
 
-  - name: Remove the entire directory a
+  - name: Remove the entire directory 
     ansible.builtin.file:
-    path: /usr/share/nginx/html/
-    state: absent
+      path: /usr/share/nginx/html/
+      state: absent
     
   - name: create html directory
     ansible.builtin.file:
